@@ -130,15 +130,16 @@ class ActionsGridFieldItemRequest extends DataExtension
             $actions->push($RightGroup);
         }
 
-        if (self::config()->enable_save_close) {
+        $config = $record->config();
+        if ($config->enable_save_close) {
             $this->addSaveAndClose($actions, $record);
         }
 
-        if (self::config()->enable_save_prev_next) {
+        if ($config->enable_save_prev_next) {
             $this->addSaveNextAndPrevious($actions, $record);
         }
 
-        if (self::config()->enable_delete_right) {
+        if ($config->enable_delete_right) {
             $this->moveCancelAndDelete($actions, $record);
         }
 
